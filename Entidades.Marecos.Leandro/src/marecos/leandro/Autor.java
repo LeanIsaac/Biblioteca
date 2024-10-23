@@ -14,12 +14,7 @@ public class Autor {
     }
     
     public String getNombreApellido(){
-        return this.nombre + " - " + this.apellido;
-    }
-    
-    public void setNombreApellido(String nombre, String apellido){
-        this.nombre = nombre;
-        this.apellido = apellido;
+        return this.nombre + " - " + this.apellido + "\n";
     }
 
 }

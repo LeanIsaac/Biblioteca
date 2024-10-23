@@ -13,13 +13,19 @@ public class Manual extends Libro{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Tipo: ").append(this.tipo);
+        sb.append("Tipo: ").append(this.tipo).append("\n");
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj) {
-        return Libro.sonIguales(this, (Libro)obj);
+        
+        boolean rto = false;
+        if(obj instanceof Manual){
+            Manual m = (Manual)obj;
+            rto = Libro.sonIguales(this, (Libro)m) && this.tipo == m.tipo;
+        }
+        return rto;
     }
    
     

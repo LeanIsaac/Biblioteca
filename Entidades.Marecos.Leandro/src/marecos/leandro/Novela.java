@@ -1,7 +1,7 @@
 package marecos.leandro;
 
 public class Novela extends Libro{
-    protected Genero genero;
+    private Genero genero;
 
     public Novela(String titulo, float precio, Autor autor, Genero genero) {
         super(titulo, precio, autor);
@@ -12,13 +12,18 @@ public class Novela extends Libro{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Genero: ").append(this.genero);
+        sb.append("Genero: ").append(this.genero).append("\n");
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj); 
+        boolean rto = false;
+        if(obj instanceof Novela){
+            Novela n = (Novela)obj;
+            rto = (Libro.sonIguales(this, (Libro)n)) && (this.genero == n.genero);
+        }
+        return rto;
     }
     
     
